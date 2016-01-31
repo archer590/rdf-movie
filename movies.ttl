@@ -1,0 +1,324 @@
+@prefix :      <http://www.rdf-movie.org/movies#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Movie  a       owl:Class .
+
+<http://www.rdf-movie.org/MaximilianSchell>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Maximilian Schell" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justiz> .
+
+<http://www.rdf-movie.org/ChristopheOdent>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Christophe Odent" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justeavantlorage> .
+
+<http://www.rdf-movie.org/CoreyHaim>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Corey Haim" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustOneoftheGirls> .
+
+<http://www.rdf-movie.org/CharlesBerling>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Charles Berling" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustFriends> .
+
+<http://www.rdf-movie.org/JustinienTrouvoulebtarddeDieu>
+        <Actor>        "http://www.rdf-movie.org/BernardPierreDonnadieu" , "http://www.rdf-movie.org/BernardHaller" , "Pierre-Olivier Mornas, Ticky Holgado, Bernard-Pierre Donnadieu, Bernard Haller" , "http://www.rdf-movie.org/PierreOlivierMornas" , "http://www.rdf-movie.org/TickyHolgado" ;
+        <Title>        "Justinien Trouvé, ou le bâtard de Dieu" ;
+        <country>      "Drama, History" ;
+        <duration>     "160 min" ;
+        <genre>        "Drama, History" ;
+        <language>     "French" ;
+        <releaseYear>  "1993" .
+
+<http://www.rdf-movie.org/JustFriends>
+        <Actor>        "http://www.rdf-movie.org/PhilippeAerts" , "http://www.rdf-movie.org/JoseBesprovany" , "http://www.rdf-movie.org/CharlesBerling" , "http://www.rdf-movie.org/StphaneAuberghen" , "Philippe Aerts, Stéphane Auberghen, Charles Berling, Jose Besprovany" ;
+        <Title>        "Just Friends" ;
+        <country>      "Music" ;
+        <duration>     "95 min" ;
+        <genre>        "Music" ;
+        <language>     "French, Dutch" ;
+        <releaseYear>  "1993" .
+
+:releaseYear  a      owl:DatatypeProperty ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :isReleased ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   xsd:integer .
+
+<http://www.rdf-movie.org/JoseBesprovany>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Jose Besprovany" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustFriends> .
+
+<http://www.rdf-movie.org/JohannahNewmarch>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Johannah Newmarch" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustOneoftheGirls> .
+
+<http://www.rdf-movie.org/ZabouBreitman>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Zabou Breitman" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justeavantlorage> .
+
+:Actor  a                owl:Class ;
+        rdfs:subClassOf  :Person ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :playRoleIn ;
+                           owl:someValuesFrom  :Movie
+                         ] .
+
+<http://www.rdf-movie.org/LauraDern>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Laura Dern" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JurassicPark> .
+
+<http://www.rdf-movie.org/LauraMorante>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Laura Morante" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justeavantlorage> .
+
+<http://www.rdf-movie.org/JeffGoldblum>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Jeff Goldblum" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JurassicPark> .
+
+<http://www.rdf-movie.org/HansWGeissendrfer>
+        <directedBy>  <http://www.rdf-movie.org/Justiz> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Hans W. Geissendörfer" .
+
+<http://www.rdf-movie.org/JurassicPark>
+        <Actor>        "http://www.rdf-movie.org/LauraDern" , "Sam Neill, Laura Dern, Jeff Goldblum, Richard Attenborough" , "http://www.rdf-movie.org/JeffGoldblum" , "http://www.rdf-movie.org/RichardAttenborough" , "http://www.rdf-movie.org/SamNeill" ;
+        <Title>        "Jurassic Park" ;
+        <country>      "Adventure, Sci-Fi, Thriller" ;
+        <duration>     "127 min" ;
+        <genre>        "Adventure, Sci-Fi, Thriller" ;
+        <language>     "English, Spanish" ;
+        <releaseYear>  "1993" .
+
+<http://www.rdf-movie.org/MathiasGndinger>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Mathias Gnädinger" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justiz> .
+
+:language  a         owl:DatatypeProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :hasLanguage ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   xsd:string .
+
+<http://www.rdf-movie.org/AnnaThalbach>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Anna Thalbach" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justiz> .
+
+<http://www.rdf-movie.org/ChristianFechner>
+        <directedBy>  <http://www.rdf-movie.org/JustinienTrouvoulebtarddeDieu> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Christian Fechner" .
+
+<http://www.rdf-movie.org/StphaneAuberghen>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Stéphane Auberghen" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustFriends> .
+
+:genre  a            owl:DatatypeProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :isGenre ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   xsd:string .
+
+<http://www.rdf-movie.org/TickyHolgado>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Ticky Holgado" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustinienTrouvoulebtarddeDieu> .
+
+:playRoleIn  a       owl:ObjectProperty ;
+        rdfs:domain  :Actor ;
+        rdfs:range   :Actor .
+
+<http://www.rdf-movie.org/RichardAttenborough>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Richard Attenborough" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JurassicPark> .
+
+<http://www.rdf-movie.org/movies>
+        a       owl:Ontology .
+
+:isGenre  a          owl:ObjectProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:range   :Movie .
+
+<http://www.rdf-movie.org/BernardHaller>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Bernard Haller" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustinienTrouvoulebtarddeDieu> .
+
+:Title  a            owl:DatatypeProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:range   xsd:string .
+
+:country  a          owl:DatatypeProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :isProducedIn ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   xsd:string .
+
+<http://www.rdf-movie.org/MichaelKeusch>
+        <directedBy>  <http://www.rdf-movie.org/JustOneoftheGirls> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Michael Keusch" .
+
+<http://www.rdf-movie.org/NicoleEggert>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Nicole Eggert" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustOneoftheGirls> .
+
+<http://www.rdf-movie.org/JustOneoftheGirls>
+        <Actor>        "http://www.rdf-movie.org/NicoleEggert" , "http://www.rdf-movie.org/CoreyHaim" , "http://www.rdf-movie.org/JohannahNewmarch" , "http://www.rdf-movie.org/CameronBancroft" , "Corey Haim, Nicole Eggert, Cameron Bancroft, Johannah Newmarch" ;
+        <Title>        "Just One of the Girls" ;
+        <country>      "Comedy" ;
+        <duration>     "91 min" ;
+        <genre>        "Comedy" ;
+        <language>     "English" ;
+        <releaseYear>  "1993" .
+
+:directedBy  a       owl:ObjectProperty ;
+        rdfs:domain  :Director ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :directedBy ;
+                       owl:someValuesFrom  :Director
+                     ] ;
+        rdfs:range   :Director .
+
+<http://www.rdf-movie.org/Justeavantlorage>
+        <Actor>        "http://www.rdf-movie.org/ChristopheMalavoy" , "http://www.rdf-movie.org/ChristopheOdent" , "http://www.rdf-movie.org/ZabouBreitman" , "http://www.rdf-movie.org/LauraMorante" , "Laura Morante, Christophe Malavoy, Zabou Breitman, Christophe Odent" ;
+        <Title>        "Juste avant l'orage" ;
+        <country>      "Comedy, Drama, Romance" ;
+        <duration>     "87 min" ;
+        <genre>        "Comedy, Drama, Romance" ;
+        <language>     "French" ;
+        <releaseYear>  "1992" .
+
+:hasLanguage  a      owl:ObjectProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:range   :Movie .
+
+<http://www.rdf-movie.org/CameronBancroft>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Cameron Bancroft" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustOneoftheGirls> .
+
+<http://www.rdf-movie.org/Justiz>
+        <Actor>        "http://www.rdf-movie.org/MathiasGndinger" , "http://www.rdf-movie.org/ThomasHeinze" , "http://www.rdf-movie.org/AnnaThalbach" , "Maximilian Schell, Thomas Heinze, Anna Thalbach, Mathias Gnädinger" , "http://www.rdf-movie.org/MaximilianSchell" ;
+        <Title>        "Justiz" ;
+        <country>      "Drama" ;
+        <duration>     "106 min" ;
+        <genre>        "Drama" ;
+        <language>     "German" ;
+        <releaseYear>  "1993" .
+
+<http://www.rdf-movie.org/StevenSpielberg>
+        <directedBy>  <http://www.rdf-movie.org/JurassicPark> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Steven Spielberg" .
+
+:hasDuration  a      owl:ObjectProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :duration ;
+                       owl:someValuesFrom  xsd:integer
+                     ] ;
+        rdfs:range   :Movie .
+
+:Person  a      owl:Class .
+
+:duration  a         owl:DatatypeProperty ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :hasDuration ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   xsd:integer .
+
+<http://www.rdf-movie.org/ThomasHeinze>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Thomas Heinze" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justiz> .
+
+<http://www.rdf-movie.org/BernardPierreDonnadieu>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Bernard-Pierre Donnadieu" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustinienTrouvoulebtarddeDieu> .
+
+<http://www.rdf-movie.org/ChristopheMalavoy>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Christophe Malavoy" ;
+        <playRoleIn>  <http://www.rdf-movie.org/Justeavantlorage> .
+
+<http://www.rdf-movie.org/MarcHenriWajnberg>
+        <directedBy>  <http://www.rdf-movie.org/JustFriends> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Marc-Henri Wajnberg" .
+
+<http://www.rdf-movie.org/BrunoHerbulot>
+        <directedBy>  <http://www.rdf-movie.org/Justeavantlorage> ;
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Bruno Herbulot" .
+
+:isReleased  a       owl:ObjectProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :releaseYear ;
+                       owl:someValuesFrom  xsd:integer
+                     ] ;
+        rdfs:range   :Movie .
+
+<http://www.rdf-movie.org/PierreOlivierMornas>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Pierre-Olivier Mornas" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustinienTrouvoulebtarddeDieu> .
+
+<http://www.rdf-movie.org/PhilippeAerts>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Philippe Aerts" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JustFriends> .
+
+<http://www.rdf-movie.org/SamNeill>
+        <http://www.w3.org/2001/vcard-rdf/3.0#FN>
+                "Sam Neill" ;
+        <playRoleIn>  <http://www.rdf-movie.org/JurassicPark> .
+
+:Director  a             owl:Class ;
+        rdfs:subClassOf  :Person ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :directedBy ;
+                           owl:someValuesFrom  :Movie
+                         ] .
+
+:collectAwards  a    owl:ObjectProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :collectAwards ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   :Movie .
+
+:isProducedIn  a     owl:ObjectProperty ;
+        rdfs:domain  :Movie ;
+        rdfs:domain  [ a                   owl:Restriction ;
+                       owl:onProperty      :isProducedIn ;
+                       owl:someValuesFrom  :Movie
+                     ] ;
+        rdfs:range   :Movie .
