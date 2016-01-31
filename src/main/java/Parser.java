@@ -32,15 +32,15 @@ public class Parser {
                 JSONObject json = new JSONObject(rd.readLine());
                 if (checkResponse(json) && checkEmptyProperties(json)) {
                     movies.add(json);
-                    System.out.println(i+" --> response OK properties OK >>> added");
+                    //System.out.println(i+" --> response OK properties OK >>> added");
                 } else {
-                    System.out.println(i+" --> response OR properties NOT OK >>> skipped");
+                    //System.out.println(i+" --> response OR properties NOT OK >>> skipped");
                 }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Movie parsed (satisfying prerequisites): "+movies.size());
+        System.out.println("Movie parsed that satisfy prerequisites: "+movies.size());
         return movies;
     }
 
