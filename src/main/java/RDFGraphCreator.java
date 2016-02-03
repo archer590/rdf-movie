@@ -1,16 +1,11 @@
-import org.apache.jena.graph.FrontsNode;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.VCARD;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -35,14 +30,14 @@ public class RDFGraphCreator {
 
             for (int i = 0; i < movies.size(); i++) {
                 JSONObject json = movies.get(i);
-                String movieURI = SOURCE +"movie/"+ json.getString("Title").replaceAll("[\\W\\s]", "");
+                String movieURI = SOURCE +"movie#"+ json.getString("Title").replaceAll("[\\W\\s]", "");
                 //System.out.println(movieURI);
                 Resource currentMovie = movieModel.createResource(movieURI);
                 //System.out.println(currentMovie.asResource());
                 currentMovie.addProperty(movieModel.getProperty("Title"), json.getString("Title"));
                 currentMovie.addProperty(movieModel.getProperty("genre"), json.getString("Genre"));
                 currentMovie.addProperty(movieModel.getProperty("language"), json.getString("Language"));
-                currentMovie.addProperty(movieModel.getProperty("country"), json.getString("Genre"));
+                currentMovie.addProperty(movieModel.getProperty("country"), json.getString("Country"));
                 currentMovie.addProperty(movieModel.getProperty("duration"), json.getString("Runtime"));
                 currentMovie.addProperty(movieModel.getProperty("releaseYear"), json.getString("Year"));
 
@@ -69,7 +64,7 @@ public class RDFGraphCreator {
         String currentActors[] = actors.split(", ");
         //System.out.println(n);
         for (int i=0; i<currentActors.length; i++) {
-            String actorURI = SOURCE+"actor/"+currentActors[i].replaceAll("[\\W\\s]", "");
+            String actorURI = SOURCE+"actor#"+currentActors[i].replaceAll("[\\W\\s]", "");
             Resource currentActor = movieModel.createResource(actorURI);
             if (!checkResourceActor(movieModel.getResource(actorURI))) {
                 currentActor.addProperty(VCARD.FN, currentActors[i]);
@@ -95,12 +90,13 @@ public class RDFGraphCreator {
         String currentDirectors[] = directors.split(", <");
         //System.out.println(n);
         for (int i=0; i<currentDirectors.length; i++) {
-            String directorURI = SOURCE+"director/"+currentDirectors[i].replaceAll("[\\W\\s]", "");
+            String directorURI = SOURCE+"director#"+currentDirectors[i].replaceAll("[\\W\\s]", "");
             Resource currentDirector = movieModel.createResource(directorURI);
             if (!checkResourceDirector(movieModel.getResource(directorURI))) {
                 currentDirector.addProperty(VCARD.FN, currentDirectors[i]);
                 //System.out.println(currentDirectors[i]+" --> added");
                 currentDirector.addProperty(movieModel.getProperty("directedBy"),n);
+                m.addProperty(movieModel.getProperty("Director"), directorURI);
             } else {
                 //System.out.println(currentDirectors[i]+" already present --> skipped");
             }
