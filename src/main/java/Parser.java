@@ -1,7 +1,6 @@
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -16,8 +15,8 @@ public class Parser {
         private static final int MAX_MOVIE_RANGE = 134854;
         private static final int MIN_MOVIE_RANGE = 107290;
         */
-          private static final int MAX_MOVIE_RANGE = 107300;
-          private static final int MIN_MOVIE_RANGE = 107290;
+          private static final int MAX_MOVIE_RANGE = 101000;
+          private static final int MIN_MOVIE_RANGE = 100000;
 
     public ArrayList<JSONObject> parsingURL(){
         ArrayList<JSONObject> movies = new ArrayList<JSONObject>();
@@ -25,16 +24,16 @@ public class Parser {
         try {
             for(int i=MIN_MOVIE_RANGE; i<MAX_MOVIE_RANGE; i++) {
                 String imdbID = getImdbID(i);
-                System.out.println(imdbID);
+                //System.out.println(imdbID);
                 URL url = new URL("http://www.omdbapi.com/?i=" + imdbID + "&plot=full&r=json");
                 InputStream is = url.openStream();
                 BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
                 JSONObject json = new JSONObject(rd.readLine());
                 if (checkResponse(json) && checkEmptyProperties(json)) {
                     movies.add(json);
-                    //System.out.println(i+" --> response OK properties OK >>> added");
+                    System.out.println(i+" --> response OK properties OK >>> added");
                 } else {
-                    //System.out.println(i+" --> response OR properties NOT OK >>> skipped");
+                    System.out.println(i+" --> response OR properties NOT OK >>> skipped");
                 }
             }
         } catch (Exception e) {
